@@ -2,7 +2,7 @@
 
 A 2D shallow water model for studying tidal resonance in a rectangular channel, built using the [Thetis](https://thetisproject.org/) coastal ocean modelling framework (Firedrake).
 
-Developed by Konstantinos Pappas as part of an MEng thesis at the University of Edinburgh (2020), with contributions from Thanasis Angeloudis.
+Developed by Konstantinos Pappas as part of an MEng thesis at the University of Edinburgh (2020).
 
 ---
 
@@ -13,7 +13,7 @@ This project simulates tidal wave propagation in a closed-end rectangular channe
 Resonance occurs when the channel length approaches a quarter of the tidal wavelength (Merian's formula):
 
 ```
-L_res = L / 4,   L = T * sqrt(g * H)
+$L_res = L / 4$,   $L = T * sqrt(g * H)$
 ```
 
 ---
