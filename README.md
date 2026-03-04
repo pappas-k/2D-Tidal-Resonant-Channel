@@ -10,12 +10,10 @@ Developed by Konstantinos Pappas as part of an MEng thesis at the University of 
 
 This project simulates tidal wave propagation in a closed-end rectangular channel and investigates resonance amplification. The channel length is set relative to the tidal wavelength, and the model is used to study how parameters such as Manning bed friction coefficient and water depth affect the amplification of tidal elevation.
 
-Resonance occurs when the channel length approaches a quarter of the tidal wavelength (Merian's formula):
+Resonance occurs when the channel length approaches a quarter of the tidal wavelength:
 
 ```
-$$
-L_{\mathrm{res}} = \frac{L}{4}, \qquad L = T \sqrt{gH}.
-$$
+$$L_{\mathrm{res}} = \frac{L}{4}, \qquad L = T \sqrt{gH}$$
 ```
 
 ---
