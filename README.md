@@ -13,7 +13,9 @@ This project simulates tidal wave propagation in a closed-end rectangular channe
 Resonance occurs when the channel length approaches a quarter of the tidal wavelength (Merian's formula):
 
 ```
-$L_res = L / 4$,   $L = T * sqrt(g * H)$
+$$
+L_{\mathrm{res}} = \frac{L}{4}, \qquad L = T \sqrt{gH}.
+$$
 ```
 
 ---
