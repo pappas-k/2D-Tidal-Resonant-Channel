@@ -1,0 +1,17 @@
+# Simulation outputs
+outputs*/
+*.h5
+*.hdf5
+*.vtu
+*.pvd
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+
+# Mesh binaries (keep .geo, ignore .msh if large)
+# mesh/*.msh
