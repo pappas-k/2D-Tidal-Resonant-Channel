@@ -12,9 +12,9 @@ This project simulates tidal wave propagation in a closed-end rectangular channe
 
 Resonance occurs when the channel length approaches a quarter of the tidal wavelength:
 
-```
+
 $L_{\mathrm{res}} = \frac{L}{4}$,  $\qquad L = T \sqrt{gH}$
-```
+
 
 ---
 
