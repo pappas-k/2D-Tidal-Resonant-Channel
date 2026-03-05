@@ -1,10 +1,11 @@
 # 2D channel with time-dependent boundary conditions
-# ==================================================
+# ===================================================
 #
 # .. highlight:: python
 #
-# Here we extend the :doc:`2D channel example <demo_2d_channel.py>` by adding constant and time
-# dependent boundary conditions.
+# This demo extends the :doc:`2D channel example <demo_2d_channel.py>` by
+# introducing both constant and time-dependent boundary conditions to simulate
+# tidal forcing at the channel entrance.
 #
 # We begin by defining the domain and solver as before::
 
