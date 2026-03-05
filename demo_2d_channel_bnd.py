@@ -88,26 +88,21 @@ swe_bnd[left_bnd_id] = {'flux': tide_flux_const}
 
 solver_obj.bnd_functions['shallow_water'] = swe_bnd
 
-# Note that if boundary conditions are not assigned for some boundaries
-# (the lateral boundaries 3 and 4 in this case), Thetis assumes impermeable land
-# conditions.
+# Boundaries without explicit conditions (lateral walls 3 and 4) default to
+# impermeable (no-normal-flow) land boundaries in Thetis.
 #
-# The only missing piece is to add a mechanism that re-evaluates the boundary
-# condition as the simulation progresses.
-# For this purpose we use the optional ``update_forcings`` argument of the
-# :py:meth:`~.FlowSolver2d.iterate` method.
-# ``update_forcings`` is a python function that updates all time dependent
-# :py:class:`~.firedrake.constant.Constant`\s or
-# :py:class:`~.firedrake.function.Function`\s used to force the model.
-# In this case we only need to update ``tide_flux_const``::
+# To update the tidal flux each time step, pass an ``update_forcings`` callback
+# to :py:meth:`~.FlowSolver2d.iterate`. This callback must reassign every time-
+# dependent :py:class:`~.firedrake.constant.Constant` or
+# :py:class:`~.firedrake.function.Function` used as forcing::
 
 
-def update_forcings(t_new):
-    """Callback function that updates all time dependent forcing fields"""
-    tide_flux_const.assign(timedep_flux(t_new))
+def update_forcings(t):
+    """Reassign time-dependent boundary forcings to their value at time *t*."""
+    tide_flux_const.assign(timedep_flux(t))
 
 
-# and finally pass this callback to the time iterator::
+# Finally, run the simulation with the forcing callback::
 
 solver_obj.iterate(update_forcings=update_forcings)
 
