@@ -45,24 +45,22 @@ options.timestep = 50.0  # [s]
 left_bnd_id = 1   # x = 0 km  (tidal inlet)
 right_bnd_id = 2  # x = 40 km (open sea)
 
-# At each boundary we need to define the external value of the prognostic
-# variables, i.e. in this case the water elevation and velocity.
-# The value should be either a Firedrake :py:class:`~.firedrake.constant.Constant` or
-# :py:class:`~.firedrake.function.Function` (in case the boundary condition is not uniform in space).
+# At each boundary, specify the external values of the prognostic variables
+# (elevation and/or velocity). Values must be Firedrake
+# :py:class:`~.firedrake.constant.Constant` or
+# :py:class:`~.firedrake.function.Function` objects.
 #
-# We store the boundary conditions in a dictionary::
+# Boundary conditions are stored in a dictionary keyed by boundary ID::
 
 swe_bnd = {}
-in_flux = 1e3
+in_flux = 1e3  # background volume flux [m³/s]
 swe_bnd[right_bnd_id] = {'elev': Constant(0.0),
                          'flux': Constant(-in_flux)}
 
-# Above we set the water elevation to zero and prescribe a constant volume flux.
-# The volume flux is defined as outward normal flux, i.e. a negative value stands
-# for flow into the domain.
-# Alternatively we could also prescribe the normal velocity (with key ``'un'``)
-# or the 2D velocity vector (``'uv'``).
-# For all supported boundary conditions, see module :py:mod:`~.shallowwater_eq`.
+# The right boundary has zero elevation and a constant inward volume flux.
+# Fluxes follow the outward-normal convention: negative means flow into the domain.
+# Other supported keys are ``'un'`` (normal velocity) and ``'uv'`` (2D velocity
+# vector); see :py:mod:`~.shallowwater_eq` for the full list.
 #
 # In order to set time-dependent boundary conditions we first define a python
 # function that evaluates the time dependent variable::
