@@ -38,7 +38,7 @@ options.timestep = 50.0
 # Note that we have increased ``t_end`` and ``t_export`` to better illustrate
 # tidal dynamics.
 #
-# Boundary condtitions are defined for each external boundary using their ID.
+# Boundary conditions are defined for each external boundary using their ID.
 # In this example we are using a
 # :py:func:`~.firedrake.utility_meshes.RectangleMesh` which assigns IDs 1, 2, 3,
 # and 4 for the four sides of the rectangle::
@@ -112,4 +112,4 @@ def update_forcings(t_new):
 solver_obj.iterate(update_forcings=update_forcings)
 
 #
-# This tutorial can be dowloaded as a Python script `here <demo_2d_channel_bnd.py>`__.
+# This tutorial can be downloaded as a Python script `here <demo_2d_channel_bnd.py>`__.
