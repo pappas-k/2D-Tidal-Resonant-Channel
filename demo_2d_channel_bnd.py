@@ -11,15 +11,17 @@
 
 from thetis import *
 
-lx = 40e3
-ly = 2e3
-nx = 25
-ny = 2
+# Domain: 40 km x 2 km rectangular channel
+lx = 40e3  # length [m]
+ly = 2e3   # width [m]
+nx = 25    # elements along x
+ny = 2     # elements along y
 mesh2d = RectangleMesh(nx, ny, lx, ly)
 
+# Constant bathymetry
 P1_2d = FunctionSpace(mesh2d, 'CG', 1)
 bathymetry_2d = Function(P1_2d, name='Bathymetry')
-depth = 20.0
+depth = 20.0  # [m]
 bathymetry_2d.assign(depth)
 
 # total duration in seconds
