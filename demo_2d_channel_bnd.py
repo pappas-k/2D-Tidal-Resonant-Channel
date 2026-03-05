@@ -33,12 +33,10 @@ options = solver_obj.options
 options.simulation_export_time = t_export
 options.simulation_end_time = t_end
 options.swe_timestepper_type = 'CrankNicolson'
-options.timestep = 50.0
+options.timestep = 50.0  # [s]
 
-# We will force the model with a constant volume flux at the right boundary
-# (x=40 km) and impose a tidal volume flux on the left boundary (x=0 km).
-# Note that we have increased ``t_end`` and ``t_export`` to better illustrate
-# tidal dynamics.
+# The model is forced with a constant volume flux at the right boundary
+# (x = 40 km) and a tidal volume flux on the left boundary (x = 0 km).
 #
 # Boundary conditions are defined for each external boundary using their ID.
 # In this example we are using a
