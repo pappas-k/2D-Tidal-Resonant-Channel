@@ -77,14 +77,11 @@ def timedep_flux(simulation_time):
     return flux
 
 
-# We then create a Constant object with the initial value,
-# and assign it to the left boundary::
+# Wrap the initial value in a ``Constant`` so it can be updated in place,
+# then assign it to the left boundary and register all conditions::
 
 tide_flux_const = Constant(timedep_flux(0))
 swe_bnd[left_bnd_id] = {'flux': tide_flux_const}
-
-# Boundary conditions are now complete, and we assign them to the solver
-# object::
 
 solver_obj.bnd_functions['shallow_water'] = swe_bnd
 
@@ -106,5 +103,4 @@ def update_forcings(t):
 
 solver_obj.iterate(update_forcings=update_forcings)
 
-#
 # This tutorial can be downloaded as a Python script `here <demo_2d_channel_bnd.py>`__.
