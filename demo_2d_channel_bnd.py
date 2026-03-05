@@ -38,13 +38,12 @@ options.timestep = 50.0  # [s]
 # The model is forced with a constant volume flux at the right boundary
 # (x = 40 km) and a tidal volume flux on the left boundary (x = 0 km).
 #
-# Boundary conditions are defined for each external boundary using their ID.
-# In this example we are using a
-# :py:func:`~.firedrake.utility_meshes.RectangleMesh` which assigns IDs 1, 2, 3,
-# and 4 for the four sides of the rectangle::
+# Boundary conditions are defined for each external boundary using its integer ID.
+# :py:func:`~.firedrake.utility_meshes.RectangleMesh` assigns IDs 1–4 to the
+# four sides (left, right, bottom, top)::
 
-left_bnd_id = 1
-right_bnd_id = 2
+left_bnd_id = 1   # x = 0 km  (tidal inlet)
+right_bnd_id = 2  # x = 40 km (open sea)
 
 # At each boundary we need to define the external value of the prognostic
 # variables, i.e. in this case the water elevation and velocity.
