@@ -24,10 +24,9 @@ bathymetry_2d = Function(P1_2d, name='Bathymetry')
 depth = 20.0  # [m]
 bathymetry_2d.assign(depth)
 
-# total duration in seconds
-t_end = 12 * 3600
-# export interval in seconds
-t_export = 300.0
+# Simulation time parameters
+t_end = 12 * 3600   # total duration [s] — one tidal period
+t_export = 300.0    # output interval [s]
 
 solver_obj = solver2d.FlowSolver2d(mesh2d, bathymetry_2d)
 options = solver_obj.options
