@@ -62,15 +62,18 @@ swe_bnd[right_bnd_id] = {'elev': Constant(0.0),
 # Other supported keys are ``'un'`` (normal velocity) and ``'uv'`` (2D velocity
 # vector); see :py:mod:`~.shallowwater_eq` for the full list.
 #
-# In order to set time-dependent boundary conditions we first define a python
-# function that evaluates the time dependent variable::
+# For time-dependent boundary conditions, define a Python function that returns
+# the boundary value at any given simulation time::
 
 
 def timedep_flux(simulation_time):
-    """Time-dependent flux function"""
-    tide_amp = -2e3
-    tide_t = 12 * 3600.
-    flux = tide_amp*sin(2 * pi * simulation_time / tide_t) + in_flux
+    """Return the tidal volume flux [m³/s] at the left boundary.
+
+    The flux is a sinusoidal tidal signal superimposed on a background inflow.
+    """
+    tide_amp = -2e3       # tidal amplitude [m³/s]
+    tide_t = 12 * 3600.  # tidal period [s]
+    flux = tide_amp * sin(2 * pi * simulation_time / tide_t) + in_flux
     return flux
 
 
